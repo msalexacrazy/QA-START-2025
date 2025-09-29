@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class homework {
+public class Homework {
     public static void main(String[] args) {
 
         int[] hotelRooms = new int[15];

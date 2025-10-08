@@ -28,8 +28,8 @@ public class Session6 {
 //        System.out.println(aliceCar.color);
 //        System.out.println(bobCar.color);
 
-        aliceCar.goTo();
-        bobCar.goTo();
+        aliceCar.goTo("Mexico");
+        bobCar.goTo("Ukraine");
 
         aliceCar.refuel(25, "diesel");
         bobCar.refuel(15, "gasoline");

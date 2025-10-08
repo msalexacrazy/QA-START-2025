@@ -14,9 +14,6 @@ public class Test {
             System.out.println(line);
         } while (line != null);
 
-        boolean flag1 = true;
-        boolean flag2 = true;
-
         while ((line = br.readLine()) != null) {
             switch (line) {
                 case "VALUE_1":

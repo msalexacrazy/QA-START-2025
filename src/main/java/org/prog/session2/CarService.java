@@ -7,7 +7,7 @@ public class CarService {
     private CarPainter vova = new CarPainter();
     private CarPainter sasha = new CarPainter();
 
-    public void paintCar(Car2 carToPaint, String newCarColor) {
+    public void paintCar(Car carToPaint, String newCarColor) {
         vova.breakDuration = 5;
         sasha.breakDuration = 10;
         if ("black".equals(newCarColor)) {
@@ -28,4 +28,9 @@ public class CarService {
     private void coffeeBreak(CarPainter carPainter) {
         System.out.println("coffeBreak for " + carPainter.breakDuration);
     }
+
+    public void polishСar(Car carToPolish) {
+        vova.polishСar(carToPolish);
+    }
+
 }

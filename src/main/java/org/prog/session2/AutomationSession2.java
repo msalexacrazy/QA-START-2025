@@ -1,7 +1,5 @@
 package org.prog.session2;
 
-import org.prog.session1.Car;
-
 public class AutomationSession2 {
 
     /**
@@ -18,7 +16,7 @@ public class AutomationSession2 {
      */
 
     public static void main(String[] args) {
-        System.out.println(Car2.brand);
+        System.out.println(Car.brand);
         //Type verName =
 //        int j = 10;
         CarService carService = new CarService();
@@ -30,8 +28,8 @@ public class AutomationSession2 {
         System.out.println(s2.length());
 //        System.out.println(s3.length());
 
-        Car2 aliceCar = new Car2();
-        Car2 myWifesCar = aliceCar;
+        Car aliceCar = new Car();
+        Car myWifesCar = aliceCar;
 
 //        carService.paintCar(aliceCar, null);
 //        System.out.println("Alice: " + aliceCar.color);

@@ -1,6 +1,6 @@
 package org.prog.session3.poly;
 
-public class Renault implements ICar {
+public class Renault extends Mazda implements ICar {
 
     @Override
     public void turn(String direction) {

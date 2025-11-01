@@ -25,9 +25,13 @@ public class Homework {
             }
         }
 
-        for (Map.Entry<String, List<HomeworkCar>> entry : mapCarOwner.entrySet()) {
-            System.out.println("Owner " + entry.getKey() + " has cars:");
-            for (HomeworkCar car : entry.getValue()) {
+        for (int i = 0; i < owners.length; i++) {
+            String owner = owners[i];
+            List<HomeworkCar> cars = mapCarOwner.get(owner);
+
+            System.out.println("Owner " + owner + " has cars:");
+            for (int j = 0; j < cars.size(); j++) {
+                HomeworkCar car = cars.get(j);
                 System.out.println("   - color: " + car.color);
             }
         }

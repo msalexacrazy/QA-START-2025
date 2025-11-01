@@ -14,9 +14,6 @@ public class Homework {
 
         for (String owner : owners) {
             mapCarOwner.put(owner, new ArrayList<>());
-        }
-
-        for (String owner : owners) {
             List<HomeworkCar> cars = mapCarOwner.get(owner);
             Random random = new Random();
             int carsCount = random.nextInt(5) + 1;

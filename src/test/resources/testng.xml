@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Client side functionality" verbose="1">
-    <test name="Registration Tests">
+    <test name="TestSite">
         <classes>
-            <class name="org.prog.session6.TestNG"/>
+            <class name="org.prog.session7.HomeworkTest"/>
         </classes>
     </test>
-    <test name="Make order and pay for it">
+    <test name="WorkInSession7">
         <classes>
             <class name="org.prog.session7.WebTest"/>
         </classes>

@@ -2,12 +2,7 @@
 <suite name="Client side functionality" verbose="1">
     <test name="Registration Tests">
         <classes>
-            <class name="org.prog.session6.TestNG"/>
-        </classes>
-    </test>
-    <test name="Make order and pay for it">
-        <classes>
-            <class name="org.prog.session6.TestNG2"/>
+            <class name="org.prog.session6.TestNG_Homework"/>
         </classes>
     </test>
 </suite>

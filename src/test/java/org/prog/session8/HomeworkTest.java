@@ -24,24 +24,19 @@ public class HomeworkTest {
 
     @Test
     public void myTestSiteAllo() {
+        driver.manage().window().maximize();
         alloPage.loadPage();
         alloPage.searchSmth("Iphone");
         alloPage.getCurrencySymbol();
-        WebElement productCard = new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".product-card")));
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", productCard);
-
+        WebElement productCard = new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions
+                .visibilityOfElementLocated(By.cssSelector(".product-card")));
         Actions actions = new Actions(driver);
         actions.moveToElement(productCard).perform();
 
-        WebElement cameraLabel = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath(".//dt[contains(text(),'Камера')]")));
-        WebElement cameraValue = cameraLabel.findElement(By.xpath("./following-sibling::dd"));
-        System.out.println("Камера: " + cameraValue.getText());
-
-        driver.quit();
+        WebElement cameraValue = driver.findElement(By.xpath("(//dt[text()='Камера']/following-sibling::dd)[1]"));
+        String cameraText = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].textContent;", cameraValue);
+        System.out.println("Камера: " + cameraText);
     }
 
     @AfterSuite

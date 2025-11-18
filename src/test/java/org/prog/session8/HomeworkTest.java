@@ -28,15 +28,8 @@ public class HomeworkTest {
         alloPage.loadPage();
         alloPage.searchSmth("Iphone");
         alloPage.getCurrencySymbol();
-
-        WebElement productCard = new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions
-                .visibilityOfElementLocated(By.cssSelector(".product-card")));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(productCard).perform();
-
-        WebElement cameraValue = driver.findElement(By.xpath("(//dt[text()='Камера']/following-sibling::dd)[1]"));
-        String cameraText = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].textContent;", cameraValue);
-        System.out.println("Камера: " + cameraText);
+        alloPage.searchFirstElementOnThePage();
+        alloPage.searchCameraOnTheCard();
     }
 
     @AfterSuite

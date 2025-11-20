@@ -17,7 +17,7 @@ import java.util.List;
 public class HomeworkTest {
 
     @Test
-    public void myRestTest() {
+    public void myRestTest1ValidatableResponse() {
         RequestSpecification requestSpecification =
                 generateRequestSpecification("https://randomuser.me/");
 
@@ -32,10 +32,11 @@ public class HomeworkTest {
         List<String> latitudes = response.jsonPath().getList("results.location.coordinates.latitude");
         List<String> longitudes = response.jsonPath().getList("results.location.coordinates.longitude");
 
-        Assert.assertFalse(streetNumbers.isEmpty(), "Street numbers list is empty!");
-        Assert.assertFalse(streetNames.isEmpty(), "Street names list is empty!");
-        Assert.assertFalse(latitudes.isEmpty(), "Latitudes list is empty!");
-        Assert.assertFalse(longitudes.isEmpty(), "Longitudes list is empty!");
+        validatableResponse
+                .body("results.location.street.number", Matchers.everyItem(Matchers.notNullValue()))
+                .body("results.location.street.name", Matchers.everyItem(Matchers.not(Matchers.isEmptyOrNullString())))
+                .body("results.location.coordinates.latitude", Matchers.everyItem(Matchers.not(Matchers.isEmptyOrNullString())))
+                .body("results.location.coordinates.longitude", Matchers.everyItem(Matchers.not(Matchers.isEmptyOrNullString())));
 
         System.out.println("Street numbers: " + streetNumbers);
         System.out.println("Street names: " + streetNames);
@@ -43,6 +44,29 @@ public class HomeworkTest {
         System.out.println("Longitudes: " + longitudes);
 
         response.prettyPrint();
+    }
+
+    @Test
+    public void myRestTest2Dto() {
+            RequestSpecification requestSpecification =
+                    generateRequestSpecification("https://randomuser.me/");
+
+            Response response = requestSpecification.get();
+            ResultsDto dto = response.as(ResultsDto.class);
+
+            List<String> addresses = dto.getResults().stream()
+                    .map(PersonDto::getLocation)
+                    .filter(location -> location != null)
+                    .map(location -> location.getStreet().getNumber() + " "
+                            + location.getStreet().getName() + ", "
+                            + location.getCity() + ", "
+                            + location.getCountry())
+                    .toList();
+
+            Assert.assertFalse(addresses.isEmpty(), "Addresses list is empty!");
+            System.out.println("Addresses: " + addresses);
+
+            response.prettyPrint();
     }
 
     private RequestSpecification generateRequestSpecification(String baseUrl) {

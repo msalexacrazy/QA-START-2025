@@ -63,6 +63,8 @@ public class HomeworkTest {
                             + location.getCountry())
                     .toList();
 
+            Assert.assertTrue(addresses.stream().noneMatch(a -> a.contains("null")),
+                    "Some addresses contain null values!");
             Assert.assertFalse(addresses.isEmpty(), "Addresses list is empty!");
             System.out.println("Addresses: " + addresses);
 

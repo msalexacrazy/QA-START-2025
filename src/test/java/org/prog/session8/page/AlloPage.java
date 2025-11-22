@@ -48,4 +48,12 @@ public class AlloPage {
         String cameraText = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].textContent;", cameraValue);
         System.out.println("Камера: " + cameraText);
     }
+
+    public String getPrise() {
+        WebElement priseValue = new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
+                .visibilityOfElementLocated(By.xpath("//*[@id=\'__layout\']/div/div[1]/div[2]/div/div[2]/div[2]/div[1]/div/div[3]/div[2]/div/div[2]/span[1]")));
+        String text = priseValue.getText();
+        System.out.println("Price value is: " + text);
+        return text;
+    }
 }

@@ -8,12 +8,12 @@ import org.prog.session9.ResultsDto;
 
 public class RestSteps {
 
-    @Given("request {int} random people from API as {string}")
-    public void requestPersonFromAPI(int amount, String alias) {
+    @Given("request {int} random location from API with fields {string} as {string}")
+    public void requestPersonFromAPI(int amount, String fields, String alias) {
         Response response = RestAssured.given()
                 .baseUri("https://randomuser.me/")
                 .basePath("api/")
-                .queryParam("inc", "gender,name,nat")
+                .queryParam("inc", fields) // приклад: "gender,name,nat,location"
                 .queryParam("results", amount)
                 .queryParam("noinfo")
                 .get();

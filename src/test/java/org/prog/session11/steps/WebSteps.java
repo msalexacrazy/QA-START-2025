@@ -5,13 +5,19 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.prog.session11.DataHolder;
+import org.prog.session8.page.AlloPage;
 import org.prog.session8.page.GooglePage;
 import org.testng.Assert;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class WebSteps {
 
     public static WebDriver driver;
     private GooglePage googlePage = new GooglePage(driver);
+    private AlloPage alloPage = new AlloPage(driver);
 
     @Given("I load google page")
     public void iLoadGooglePage() {
@@ -23,6 +29,15 @@ public class WebSteps {
         if (googlePage.isCookiesPresent()) {
             googlePage.acceptCookiesIfPresent();
         }
+    }
+
+    @Given("Search {string} coast")
+    public void searchSmthFromSite(String alias) throws SQLException {
+        driver.manage().window().maximize();
+        alloPage.loadPage();
+        alloPage.searchSmth(alias);
+        String price = alloPage.getPrise();
+        DataHolder.DATA.put(alias, price);
     }
 
 

@@ -5,6 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.prog.session11.steps.DBSteps;
 import org.prog.session11.steps.WebSteps;
+import org.prog.session8.page.AlloPage;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -12,7 +13,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/my-homework.feature",
         glue = "org.prog.session11.steps"
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests {

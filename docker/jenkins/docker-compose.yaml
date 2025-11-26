@@ -1,6 +1,6 @@
 services:
   jenkins:
-    build: ./jenkins
+    image: jenkins/jenkins:lts-jdk17
     privileged: true
     user: root
     ports:

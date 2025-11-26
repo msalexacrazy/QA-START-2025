@@ -28,7 +28,7 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
                 new URL("http://selenoid-selenoid-1:4444/wd/hub"), remoteChrome());
         Class.forName("com.mysql.cj.jdbc.Driver");
         DBSteps.connection = DriverManager.getConnection(
-                "jdbc:mysql://mysql-db-1:3306/db", "root", "password");
+                "jdbc:mysql://mysql_db:3306/db", "root", "password");
     }
 
     @AfterSuite

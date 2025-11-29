@@ -3,16 +3,7 @@
     "default": "121.0",
     "versions": {
       "121.0": {
-        "image": "selenoid/vnc:chrome_121.0",
-        "port": "4444",
-        "tmpfs": {"/tmp":"size=512m"},
-        "shmSize": 536870912,
-        "path": "/",
-        "env": [
-          "CHROMEDRIVER_PORT=4444",
-          "CHROMEDRIVER_HOST=0.0.0.0",
-          "CHROME_OPTS=--disable-ipv6 --disable-dev-shm-usage"
-        ]
+        "image": "selenoid/vnc:chrome_121.0"
       }
     }
   }

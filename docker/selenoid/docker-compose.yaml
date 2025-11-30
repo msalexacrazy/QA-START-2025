@@ -30,7 +30,7 @@ services:
       "-container-network", "selenoid"
     ]
     ports:
-      - "4444:4444"
+      - "4445:4445"
 
   selenoid-ui:
     image: aerokube/selenoid-ui

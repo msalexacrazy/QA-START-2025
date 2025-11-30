@@ -21,7 +21,7 @@ import java.util.HashMap;
         glue = "org.prog.session11.steps",
         plugin = {
                 "pretty",
-                "json:target/cucumber-reports/Cucumber.json",
+                "json:target/Cucumber.json",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         }
 )

@@ -30,7 +30,7 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
     @BeforeSuite
     public void beforeSuite() throws ClassNotFoundException, SQLException, MalformedURLException {
         WebSteps.driver = new RemoteWebDriver(
-                new URL("http://selenium_grid:4444/wd/hub"), remoteChrome());
+                new URL("http://selenium-hub:4444/wd/hub"), remoteChrome());
         Class.forName("com.mysql.cj.jdbc.Driver");
         DBSteps.connection = DriverManager.getConnection(
                 "jdbc:mysql://mysql_db:3306/db", "root", "password");

@@ -23,7 +23,7 @@ public class AllureSampleTests {
     @BeforeSuite
     public void initWebDriver() throws MalformedURLException {
         driver = WebSteps.driver = new RemoteWebDriver(
-                new URL("http://selenoid:4445/wd/hub"), CucumberRunner.remoteChrome());
+                new URL("http://selenium-hub:4444/wd/hub"), CucumberRunner.remoteChrome());
         googlePage = new GooglePage(driver);
         w3SchoolsPage = new W3SchoolsPage(driver);
     }

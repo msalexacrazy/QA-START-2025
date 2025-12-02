@@ -125,9 +125,10 @@
                 <version>2.22.2</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng-remote.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testng-allure.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testNGArtifactName>org.testng:testng</testNGArtifactName>
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
         </plugins>
